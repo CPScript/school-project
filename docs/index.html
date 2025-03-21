@@ -1,0 +1,1460 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SpaceCats - Cosmic Food Truck</title>
+    <style>
+        :root {
+            --neon-pink: #ff2a6d;
+            --neon-blue: #05d9e8;
+            --neon-purple: #d800ff;
+            --dark-purple: #1a0b2e;
+            --darker-purple: #0d0221;
+            --cyber-yellow: #ffb703;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Courier New', monospace;
+        }
+        
+        body {
+            background-color: var(--darker-purple);
+            color: white;
+            background-image: 
+                url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="400" height="400" viewBox="0 0 400 400"><rect width="100%" height="100%" fill="%230d0221"/><circle cx="20" cy="30" r="1" fill="%23ffffff" opacity="0.7"/><circle cx="40" cy="80" r="1.2" fill="%23ffffff" opacity="0.8"/><circle cx="70" cy="50" r="0.8" fill="%23ffffff" opacity="0.6"/><circle cx="90" cy="90" r="1.5" fill="%23ffffff" opacity="0.9"/><circle cx="120" cy="40" r="1" fill="%23ffffff" opacity="0.7"/><circle cx="150" cy="70" r="0.7" fill="%23ffffff" opacity="0.5"/><circle cx="180" cy="30" r="1.3" fill="%23ffffff" opacity="0.8"/><circle cx="210" cy="80" r="0.9" fill="%23ffffff" opacity="0.6"/><circle cx="240" cy="50" r="1.4" fill="%23ffffff" opacity="0.9"/><circle cx="270" cy="90" r="0.8" fill="%23ffffff" opacity="0.5"/><circle cx="300" cy="40" r="1.1" fill="%23ffffff" opacity="0.7"/><circle cx="330" cy="70" r="1.5" fill="%23ffffff" opacity="0.9"/><circle cx="360" cy="30" r="0.6" fill="%23ffffff" opacity="0.4"/><circle cx="30" cy="110" r="1.2" fill="%23ffffff" opacity="0.8"/><circle cx="60" cy="140" r="0.7" fill="%23ffffff" opacity="0.5"/><circle cx="90" cy="170" r="1" fill="%23ffffff" opacity="0.7"/><circle cx="120" cy="120" r="1.4" fill="%23ffffff" opacity="0.9"/><circle cx="150" cy="150" r="0.8" fill="%23ffffff" opacity="0.6"/><circle cx="180" cy="110" r="1.3" fill="%23ffffff" opacity="0.8"/><circle cx="210" cy="170" r="0.9" fill="%23ffffff" opacity="0.6"/><circle cx="240" cy="140" r="1.1" fill="%23ffffff" opacity="0.7"/><circle cx="270" cy="120" r="1.5" fill="%23ffffff" opacity="0.9"/><circle cx="300" cy="150" r="0.6" fill="%23ffffff" opacity="0.4"/><circle cx="330" cy="110" r="1.2" fill="%23ffffff" opacity="0.8"/><circle cx="360" cy="140" r="0.8" fill="%23ffffff" opacity="0.5"/><circle cx="50" cy="190" r="1.3" fill="%23ffffff" opacity="0.8"/><circle cx="80" cy="220" r="0.7" fill="%23ffffff" opacity="0.5"/><circle cx="110" cy="250" r="1" fill="%23ffffff" opacity="0.7"/><circle cx="140" cy="200" r="1.5" fill="%23ffffff" opacity="0.9"/><circle cx="170" cy="230" r="0.8" fill="%23ffffff" opacity="0.6"/><circle cx="200" cy="260" r="1.2" fill="%23ffffff" opacity="0.8"/><circle cx="230" cy="190" r="0.9" fill="%23ffffff" opacity="0.6"/><circle cx="260" cy="220" r="1.4" fill="%23ffffff" opacity="0.9"/><circle cx="290" cy="250" r="0.6" fill="%23ffffff" opacity="0.4"/><circle cx="320" cy="200" r="1.1" fill="%23ffffff" opacity="0.7"/><circle cx="350" cy="230" r="1.5" fill="%23ffffff" opacity="0.9"/><circle cx="380" cy="260" r="0.7" fill="%23ffffff" opacity="0.5"/><circle cx="35" cy="290" r="1" fill="%23ffffff" opacity="0.7"/><circle cx="65" cy="320" r="1.3" fill="%23ffffff" opacity="0.8"/><circle cx="95" cy="350" r="0.8" fill="%23ffffff" opacity="0.6"/><circle cx="125" cy="280" r="1.5" fill="%23ffffff" opacity="0.9"/><circle cx="155" cy="310" r="0.6" fill="%23ffffff" opacity="0.4"/><circle cx="185" cy="340" r="1.1" fill="%23ffffff" opacity="0.7"/><circle cx="215" cy="380" r="0.9" fill="%23ffffff" opacity="0.6"/><circle cx="245" cy="290" r="1.4" fill="%23ffffff" opacity="0.9"/><circle cx="275" cy="320" r="0.7" fill="%23ffffff" opacity="0.5"/><circle cx="305" cy="350" r="1.2" fill="%23ffffff" opacity="0.8"/><circle cx="335" cy="280" r="0.8" fill="%23ffffff" opacity="0.6"/><circle cx="365" cy="310" r="1" fill="%23ffffff" opacity="0.7"/><circle cx="395" cy="340" r="1.5" fill="%23ffffff" opacity="0.9"/><circle cx="15" cy="370" r="0.6" fill="%23ffffff" opacity="0.4"/></svg>'),
+                radial-gradient(circle at 20% 30%, rgba(216, 0, 255, 0.2) 0%, transparent 20%),
+                radial-gradient(circle at 70% 60%, rgba(5, 217, 232, 0.2) 0%, transparent 20%),
+                radial-gradient(circle at 90% 10%, rgba(255, 42, 109, 0.2) 0%, transparent 20%),
+                radial-gradient(var(--neon-blue) 1px, transparent 1px),
+                radial-gradient(var(--neon-purple) 1px, transparent 1px);
+            background-size: 400px 400px, 600px 600px, 700px 700px, 800px 800px, 50px 50px, 50px 50px;
+            background-position: 0 0, 0 0, 0 0, 0 0, 0 0, 25px 25px;
+            background-attachment: fixed;
+            overflow-x: hidden;
+            position: relative;
+        }
+        
+        body::before, body::after {
+            content: "";
+            position: fixed;
+            width: 200px;
+            height: 2px;
+            background: linear-gradient(to right, transparent, var(--neon-pink), transparent);
+            border-radius: 50%;
+            opacity: 0;
+            pointer-events: none;
+        }
+        
+        body::before {
+            top: 15%;
+            left: -10%;
+            animation: shootingStar 7s linear infinite;
+            animation-delay: 3s;
+        }
+        
+        body::after {
+            top: 70%;
+            left: -10%;
+            animation: shootingStar 8s linear infinite;
+            animation-delay: 1s;
+        }
+        
+        @keyframes shootingStar {
+            0% {
+                transform: translateX(0) rotate(315deg);
+                opacity: 0;
+            }
+            15% {
+                opacity: 1;
+            }
+            30% {
+                opacity: 0;
+            }
+            100% {
+                transform: translateX(150vw) rotate(315deg);
+                opacity: 0;
+            }
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        header {
+            background-color: rgba(26, 11, 46, 0.8);
+            padding: 20px 0;
+            border-bottom: 2px solid var(--neon-blue);
+            position: relative;
+            z-index: 100;
+            backdrop-filter: blur(5px);
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+        
+        .logo h1 {
+            font-size: 3.5rem;
+            font-weight: bold;
+            background: linear-gradient(to right, var(--neon-pink), var(--neon-blue));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            text-shadow: 0 0 10px rgba(255, 42, 109, 0.5),
+                         0 0 20px rgba(5, 217, 232, 0.3);
+            letter-spacing: 3px;
+        }
+        
+        .nav-container {
+            display: flex;
+            justify-content: center;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+            background-color: rgba(13, 2, 33, 0.8);
+            border-radius: 50px;
+            padding: 10px 20px;
+            border: 1px solid var(--neon-blue);
+            box-shadow: 0 0 15px var(--neon-blue);
+        }
+        
+        nav ul li {
+            margin: 0 15px;
+        }
+        
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-size: 1.2rem;
+            padding: 8px 15px;
+            border-radius: 20px;
+            transition: all 0.3s;
+            position: relative;
+            z-index: 1;
+            letter-spacing: 1px;
+        }
+        
+        nav ul li a:hover, nav ul li a.active {
+            color: var(--darker-purple);
+            background-color: var(--neon-blue);
+            box-shadow: 0 0 10px var(--neon-blue),
+                         0 0 20px var(--neon-blue);
+        }
+        
+        .content-section {
+            display: none;
+            margin-top: 50px;
+            animation: fadeIn 0.5s ease-in-out forwards;
+            position: relative;
+        }
+        
+        .content-section.active {
+            display: block;
+        }
+        
+        /* Home Section */
+        .home-content {
+            text-align: center;
+            padding: 50px 20px;
+            position: relative;
+        }
+        
+        .home-content h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: var(--neon-pink);
+            text-shadow: 0 0 10px var(--neon-pink);
+        }
+        
+        .home-content p {
+            font-size: 1.2rem;
+            line-height: 1.8;
+            margin-bottom: 30px;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .cta-button {
+            background: linear-gradient(to right, var(--neon-pink), var(--neon-purple));
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            font-size: 1.2rem;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-top: 20px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .cta-button:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(216, 0, 255, 0.4);
+        }
+        
+        .cta-button::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(transparent, var(--neon-blue), transparent);
+            transform: rotate(45deg);
+            z-index: -1;
+            transition: all 0.5s;
+            opacity: 0;
+        }
+        
+        .cta-button:hover::before {
+            animation: sheen 1s forwards;
+            opacity: 1;
+        }
+        
+        .home-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            margin-top: 50px;
+        }
+        
+        .feature-box {
+            background: rgba(26, 11, 46, 0.7);
+            padding: 30px;
+            border-radius: 15px;
+            border: 1px solid var(--neon-blue);
+            transition: all 0.3s;
+            backdrop-filter: blur(5px);
+        }
+        
+        .feature-box:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 30px rgba(5, 217, 232, 0.3);
+        }
+        
+        .feature-box h3 {
+            color: var(--cyber-yellow);
+            margin-bottom: 15px;
+            font-size: 1.5rem;
+        }
+        
+        .feature-box p {
+            font-size: 1rem;
+        }
+        
+        .menu-content {
+            padding: 30px 0;
+        }
+        
+        .menu-content h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 40px;
+            color: var(--neon-blue);
+            text-shadow: 0 0 10px var(--neon-blue);
+        }
+        
+        .menu-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .menu-item {
+            background: rgba(26, 11, 46, 0.7);
+            border-radius: 15px;
+            overflow: hidden;
+            border: 1px solid var(--neon-pink);
+            transition: all 0.3s;
+            display: flex;
+            flex-direction: column;
+            backdrop-filter: blur(5px);
+            padding: 20px;
+        }
+        
+        .menu-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 30px rgba(255, 42, 109, 0.3);
+        }
+        
+        .menu-info {
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .menu-info h3 {
+            color: var(--neon-pink);
+            margin-bottom: 10px;
+            font-size: 1.3rem;
+        }
+        
+        .menu-info p {
+            color: #ccc;
+            margin-bottom: 15px;
+            font-size: 0.9rem;
+            flex-grow: 1;
+        }
+        
+        .menu-price {
+            color: var(--cyber-yellow);
+            font-size: 1.2rem;
+            font-weight: bold;
+            align-self: flex-end;
+        }
+        
+        /* Merch Section */
+        .merch-content {
+            padding: 30px 0;
+        }
+        
+        .merch-content h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 40px;
+            color: var(--neon-purple);
+            text-shadow: 0 0 10px var(--neon-purple);
+        }
+        
+        .merch-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .merch-item {
+            background: rgba(26, 11, 46, 0.7);
+            border-radius: 15px;
+            overflow: hidden;
+            border: 1px solid var(--neon-purple);
+            transition: all 0.3s;
+            backdrop-filter: blur(5px);
+        }
+        
+        .merch-item:hover {
+            transform: translateY(-10px) rotateY(10deg);
+            box-shadow: 0 10px 30px rgba(216, 0, 255, 0.3);
+        }
+        
+        .merch-img {
+            height: 300px;
+            background-color: var(--dark-purple);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-bottom: 1px solid var(--neon-purple);
+        }
+        
+        .merch-img p {
+            color: var(--neon-purple);
+            font-size: 1rem;
+            text-align: center;
+            padding: 20px;
+        }
+        
+        .merch-info {
+            padding: 20px;
+        }
+        
+        .merch-info h3 {
+            color: var(--neon-purple);
+            margin-bottom: 10px;
+            font-size: 1.3rem;
+        }
+        
+        .merch-info p {
+            color: #ccc;
+            margin-bottom: 15px;
+            font-size: 0.9rem;
+        }
+        
+        .merch-price {
+            color: var(--cyber-yellow);
+            font-size: 1.2rem;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+        
+        .buy-button {
+            background: linear-gradient(to right, var(--neon-purple), var(--neon-blue));
+            color: white;
+            border: none;
+            padding: 8px 20px;
+            font-size: 1rem;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .buy-button:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 15px var(--neon-purple);
+        }
+        
+        footer {
+            margin-top: 100px;
+            background-color: rgba(13, 2, 33, 0.9);
+            padding: 40px 0;
+            border-top: 2px solid var(--neon-pink);
+            backdrop-filter: blur(5px);
+        }
+        
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+        
+        .footer-section {
+            flex: 1;
+            min-width: 300px;
+            margin-bottom: 30px;
+            padding: 0 20px;
+        }
+        
+        .footer-section h3 {
+            color: var(--neon-blue);
+            margin-bottom: 20px;
+            font-size: 1.5rem;
+        }
+        
+        .footer-section p, .footer-section a {
+            color: #ccc;
+            margin-bottom: 10px;
+            display: block;
+            text-decoration: none;
+        }
+        
+        .footer-section a:hover {
+            color: var(--neon-pink);
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid var(--dark-purple);
+            margin-top: 30px;
+        }
+        
+        .space-objects {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+            overflow: hidden;
+        }
+        
+        .nebula {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(60px);
+            opacity: 0.2;
+            mix-blend-mode: screen;
+        }
+        
+        .nebula-1 {
+            width: 800px;
+            height: 600px;
+            background: 
+                radial-gradient(ellipse at center, var(--neon-purple) 0%, transparent 60%),
+                repeating-linear-gradient(45deg, 
+                    rgba(216, 0, 255, 0.03) 0px, 
+                    rgba(216, 0, 255, 0.03) 2px, 
+                    transparent 2px, 
+                    transparent 4px);
+            top: -200px;
+            left: -300px;
+            animation: nebulaFloat 120s infinite alternate ease-in-out;
+        }
+        
+        .nebula-2 {
+            width: 700px;
+            height: 700px;
+            background: 
+                radial-gradient(ellipse at center, var(--neon-blue) 0%, transparent 60%),
+                repeating-radial-gradient(
+                    circle at center,
+                    rgba(5, 217, 232, 0.02) 0px,
+                    rgba(5, 217, 232, 0.02) 3px,
+                    transparent 3px,
+                    transparent 6px
+                );
+            bottom: -250px;
+            right: -200px;
+            animation: nebulaFloat 90s infinite alternate-reverse ease-in-out;
+        }
+        
+        .nebula-3 {
+            width: 600px;
+            height: 800px;
+            background: 
+                radial-gradient(ellipse at center, var(--neon-pink) 0%, transparent 60%),
+                repeating-linear-gradient(-45deg, 
+                    rgba(255, 42, 109, 0.02) 0px, 
+                    rgba(255, 42, 109, 0.02) 2px, 
+                    transparent 2px, 
+                    transparent 4px);
+            top: 20%;
+            right: -300px;
+            animation: nebulaFloat 150s infinite alternate ease-in-out;
+        }
+        
+        .nebula-4 {
+            width: 900px;
+            height: 500px;
+            background: 
+                radial-gradient(ellipse at center, var(--cyber-yellow) 0%, transparent 70%),
+                repeating-conic-gradient(
+                    rgba(255, 183, 3, 0.01) 0deg 10deg,
+                    transparent 10deg 20deg
+                );
+            bottom: 10%;
+            left: -400px;
+            animation: nebulaFloat 180s infinite alternate-reverse ease-in-out;
+            animation-delay: -90s;
+        }
+        
+        .galaxy {
+            position: absolute;
+            width: 300px;
+            height: 120px;
+            background: radial-gradient(
+                ellipse at center,
+                rgba(255, 255, 255, 0.5) 0%,
+                rgba(216, 0, 255, 0.3) 20%,
+                rgba(5, 217, 232, 0.2) 40%,
+                transparent 70%
+            );
+            border-radius: 50%;
+            transform: rotate(30deg);
+            filter: blur(10px);
+            opacity: 0.3;
+        }
+        
+        .galaxy-1 {
+            top: 15%;
+            right: 10%;
+            animation: galaxyPulse 20s infinite alternate ease-in-out;
+        }
+        
+        .galaxy-2 {
+            bottom: 20%;
+            left: 5%;
+            width: 200px;
+            height: 80px;
+            transform: rotate(-20deg);
+            animation: galaxyPulse 25s infinite alternate-reverse ease-in-out;
+        }
+        
+        .distant-planet {
+            position: absolute;
+            border-radius: 50%;
+            box-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+        }
+        
+        .distant-planet-1 {
+            width: 40px;
+            height: 40px;
+            background: radial-gradient(circle at 30% 30%, #ff9d00 0%, #ff4d00 100%);
+            top: 20%;
+            left: 8%;
+            animation: planetGlow 15s infinite alternate ease-in-out;
+        }
+        
+        .distant-planet-2 {
+            width: 25px;
+            height: 25px;
+            background: radial-gradient(circle at 40% 40%, #00a6ff 0%, #0057ff 100%);
+            top: 70%;
+            right: 15%;
+            animation: planetGlow 18s infinite alternate-reverse ease-in-out;
+        }
+        
+        .distant-planet-3 {
+            width: 15px;
+            height: 15px;
+            background: radial-gradient(circle at 35% 35%, #ffff00 0%, #ff8c00 100%);
+            top: 35%;
+            right: 25%;
+            animation: planetGlow 12s infinite alternate ease-in-out;
+        }
+        
+        .floating-particle {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background-color: white;
+            border-radius: 50%;
+            opacity: 0;
+            animation: floatParticle 15s infinite linear;
+        }
+        
+        .cosmic-dust {
+            position: absolute;
+            width: 2px;
+            height: 2px;
+            background-color: rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            animation: cosmicDust 20s infinite linear;
+        }
+        
+        .p1 { top: 20%; left: 10%; animation-delay: 0s; }
+        .p2 { top: 40%; left: 20%; animation-delay: 2s; }
+        .p3 { top: 70%; left: 30%; animation-delay: 5s; }
+        .p4 { top: 30%; left: 70%; animation-delay: 7s; }
+        .p5 { top: 60%; left: 80%; animation-delay: 1s; }
+        .p6 { top: 15%; left: 60%; animation-delay: 3s; }
+        .p7 { top: 85%; left: 15%; animation-delay: 6s; }
+        .p8 { top: 50%; left: 50%; animation-delay: 4s; }
+        
+        /* Cosmic dust positions */
+        .d1 { top: 15%; left: 25%; animation-delay: 0s; }
+        .d2 { top: 35%; left: 45%; animation-delay: 3s; }
+        .d3 { top: 65%; left: 15%; animation-delay: 6s; }
+        .d4 { top: 25%; left: 65%; animation-delay: 9s; }
+        .d5 { top: 75%; left: 85%; animation-delay: 12s; }
+        .d6 { top: 45%; left: 35%; animation-delay: 15s; }
+        .d7 { top: 55%; left: 75%; animation-delay: 18s; }
+        .d8 { top: 85%; left: 55%; animation-delay: 21s; }
+        .d9 { top: 25%; left: 88%; animation-delay: 1s; }
+        .d10 { top: 75%; left: 32%; animation-delay: 4s; }
+        .d11 { top: 40%; left: 92%; animation-delay: 7s; }
+        .d12 { top: 90%; left: 40%; animation-delay: 10s; }
+        .d13 { top: 10%; left: 70%; animation-delay: 13s; }
+        .d14 { top: 80%; left: 12%; animation-delay: 16s; }
+        .d15 { top: 60%; left: 60%; animation-delay: 19s; }
+        
+        .wormhole {
+            position: absolute;
+            top: 70%;
+            left: 80%;
+            width: 100px;
+            height: 30px;
+            background: transparent;
+            border-radius: 50%;
+            box-shadow: 0 0 30px rgba(216, 0, 255, 0.5);
+            transform: rotate(-30deg);
+            opacity: 0.1;
+            animation: wormholeEffect 30s infinite alternate ease-in-out;
+        }
+        
+        .wormhole::before {
+            content: "";
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 80%;
+            height: 60%;
+            background: linear-gradient(to right, transparent, rgba(255, 42, 109, 0.3), transparent);
+            border-radius: 50%;
+            filter: blur(5px);
+        }
+        
+        @keyframes nebulaFloat {
+            0% { transform: translate(0, 0) rotate(0deg) scale(1); }
+            30% { transform: translate(30px, 20px) rotate(3deg) scale(1.05); }
+            70% { transform: translate(-20px, -30px) rotate(-3deg) scale(0.95); }
+            100% { transform: translate(-40px, 40px) rotate(-5deg) scale(1.02); }
+        }
+        
+        @keyframes floatParticle {
+            0% {
+                transform: translate(0, 0) scale(0) rotate(0deg);
+                opacity: 0;
+            }
+            20% {
+                transform: translate(40px, -40px) scale(1) rotate(72deg);
+                opacity: 0.8;
+                background-color: var(--neon-pink);
+                box-shadow: 0 0 8px var(--neon-pink);
+            }
+            40% {
+                transform: translate(80px, -60px) scale(1.2) rotate(144deg);
+                opacity: 0.6;
+                background-color: var(--neon-blue);
+                box-shadow: 0 0 8px var(--neon-blue);
+            }
+            60% {
+                transform: translate(120px, -40px) scale(1) rotate(216deg);
+                opacity: 0.8;
+                background-color: var(--neon-purple);
+                box-shadow: 0 0 8px var(--neon-purple);
+            }
+            80% {
+                transform: translate(160px, -20px) scale(0.8) rotate(288deg);
+                opacity: 0.4;
+                background-color: var(--cyber-yellow);
+                box-shadow: 0 0 8px var(--cyber-yellow);
+            }
+            100% {
+                transform: translate(200px, 0) scale(0) rotate(360deg);
+                opacity: 0;
+            }
+        }
+        
+        @keyframes cosmicDust {
+            0% {
+                transform: translate(0, 0) scale(0.5);
+                opacity: 0;
+            }
+            10% {
+                transform: translate(100px, -50px) scale(1);
+                opacity: 0.8;
+            }
+            90% {
+                transform: translate(900px, -150px) scale(1);
+                opacity: 0.6;
+            }
+            100% {
+                transform: translate(1000px, -200px) scale(0.5);
+                opacity: 0;
+            }
+        }
+        
+        @keyframes galaxyPulse {
+            0% { transform: rotate(30deg) scale(1) opacity(0.3); }
+            50% { transform: rotate(30deg) scale(1.1) opacity(0.4); }
+            100% { transform: rotate(30deg) scale(0.9) opacity(0.2); }
+        }
+        
+        @keyframes planetGlow {
+            0% { box-shadow: 0 0 10px rgba(255, 255, 255, 0.3); }
+            50% { box-shadow: 0 0 20px rgba(255, 255, 255, 0.5); }
+            100% { box-shadow: 0 0 10px rgba(255, 255, 255, 0.3); }
+        }
+        
+        @keyframes wormholeEffect {
+            0% { transform: rotate(-30deg) scale(1); opacity: 0.1; }
+            40% { transform: rotate(-25deg) scale(1.5); opacity: 0.2; }
+            60% { transform: rotate(-35deg) scale(0.8); opacity: 0.15; }
+            100% { transform: rotate(-40deg) scale(1.2); opacity: 0.05; }
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        @keyframes sheen {
+            100% { transform: rotate(45deg) translate(150%, 150%); }
+        }
+        
+        @keyframes neonFlicker {
+            0%, 19%, 21%, 23%, 25%, 54%, 56%, 100% {
+                text-shadow: 0 0 10px var(--neon-pink),
+                         0 0 20px var(--neon-blue);
+            }
+            20%, 24%, 55% {
+                text-shadow: none;
+            }
+        }
+        
+        .space-cat-3d {
+            width: 320px;
+            height: 320px;
+            margin: 60px auto;
+            position: relative;
+            perspective: 1200px;
+        }
+        
+        .cat-planet {
+            width: 100%;
+            height: 100%;
+            position: relative;
+            transform-style: preserve-3d;
+        }
+        
+        .planet-core {
+            position: absolute;
+            width: 220px;
+            height: 220px;
+            top: 50px;
+            left: 50px;
+            border-radius: 50%;
+            background: radial-gradient(
+                circle at 35% 35%,
+                #d800ff 0%,
+                #9500b3 15%,
+                #5e0071 40%,
+                #3d004a 60%,
+                #25002e 80%,
+                #12001a 100%
+            );
+            box-shadow: 0 0 40px rgba(216, 0, 255, 0.4),
+                        inset 5px 5px 40px rgba(255, 255, 255, 0.2),
+                        inset -5px -5px 40px rgba(0, 0, 0, 0.6);
+            overflow: hidden;
+            transform-style: preserve-3d;
+        }
+        
+        .planet-core::before {
+            content: "";
+            position: absolute;
+            width: 300%;
+            height: 300%;
+            top: -100%;
+            left: -100%;
+            background-image: 
+                radial-gradient(circle at 70% 40%, rgba(255, 255, 255, 0.15) 0%, transparent 30%),
+                radial-gradient(circle at 30% 60%, rgba(5, 217, 232, 0.1) 0%, transparent 20%),
+                radial-gradient(circle at 80% 20%, rgba(255, 42, 109, 0.1) 0%, transparent 15%),
+                radial-gradient(circle at 20% 30%, rgba(255, 183, 3, 0.1) 0%, transparent 25%),
+                url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="200" height="200" viewBox="0 0 200 200"><filter id="noise"><feTurbulence type="fractalNoise" baseFrequency="0.65" numOctaves="3" stitchTiles="stitch"/><feColorMatrix type="saturate" values="0"/></filter><rect width="100%" height="100%" filter="url(%23noise)" opacity="0.1"/></svg>');
+            opacity: 0.7;
+            mix-blend-mode: overlay;
+            animation: planetTextureMove 15s infinite linear;
+        }
+        
+        .planet-core::after {
+            content: "";
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            background: 
+                radial-gradient(circle at 75% 30%, rgba(0, 0, 0, 0.3) 0%, transparent 12%),
+                radial-gradient(circle at 40% 70%, rgba(0, 0, 0, 0.2) 0%, transparent 15%),
+                radial-gradient(circle at 65% 65%, rgba(0, 0, 0, 0.3) 0%, transparent 10%),
+                radial-gradient(circle at 30% 40%, rgba(0, 0, 0, 0.2) 0%, transparent 8%),
+                radial-gradient(circle at 55% 20%, rgba(0, 0, 0, 0.2) 0%, transparent 12%);
+            border-radius: 50%;
+        }
+        
+        .rings-system {
+            position: absolute;
+            width: 400px;
+            height: 400px;
+            top: -40px;
+            left: -40px;
+            pointer-events: none;
+            transform-style: preserve-3d;
+            animation: ringsRotate 30s infinite linear;
+        }
+        
+        .planet-ring {
+            position: absolute;
+            width: 400px;
+            height: 400px;
+            top: 0;
+            left: 0;
+            border-radius: 50%;
+            transform-style: preserve-3d;
+            transform: rotateX(75deg);
+        }
+        
+        .ring-outer {
+            position: absolute;
+            width: 380px;
+            height: 380px;
+            top: 10px;
+            left: 10px;
+            border-radius: 50%;
+            border: none;
+            box-shadow: 0 0 20px var(--neon-blue);
+            transform-style: preserve-3d;
+            overflow: hidden;
+            opacity: 0;
+        }
+        
+        .ring-inner {
+            position: absolute;
+            width: 280px;
+            height: 280px;
+            top: 60px;
+            left: 60px;
+            border-radius: 50%;
+            border: none;
+            box-shadow: 0 0 20px var(--neon-pink);
+            transform-style: preserve-3d;
+            overflow: hidden;
+            opacity: 0;
+        }
+        
+        .ring-1, .ring-2, .ring-3 {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            border-radius: 50%;
+            border: none;
+            opacity: 0.7;
+            pointer-events: none;
+        }
+        
+        .ring-1 {
+            width: 380px;
+            height: 380px;
+            box-shadow: 0 0 0 15px rgba(5, 217, 232, 0.15),
+                        0 0 0 25px rgba(5, 217, 232, 0.1),
+                        0 0 0 35px rgba(5, 217, 232, 0.05);
+        }
+        
+        .ring-2 {
+            width: 320px;
+            height: 320px;
+            box-shadow: 0 0 0 10px rgba(255, 42, 109, 0.15),
+                        0 0 0 20px rgba(255, 42, 109, 0.1),
+                        0 0 0 30px rgba(255, 42, 109, 0.05);
+        }
+        
+        .ring-3 {
+            width: 260px;
+            height: 260px;
+            box-shadow: 0 0 0 8px rgba(255, 183, 3, 0.15),
+                        0 0 0 16px rgba(255, 183, 3, 0.1),
+                        0 0 0 24px rgba(255, 183, 3, 0.05);
+        }
+        
+        .cat-walker {
+            position: absolute;
+            width: 24px;
+            height: 16px;
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 16"><path d="M10,1 L8,4 L16,4 L14,1 M11,4 L11,8 L13,8 L13,4 M6,5 C4,5 2,6 2,8 C2,10 4,11 6,11 C8,11 9,10 9,9 L15,9 C15,10 16,11 18,11 C20,11 22,10 22,8 C22,6 20,5 18,5 C17,5 16,5.5 15,6 L9,6 C8,5.5 7,5 6,5 Z" fill="%23ffffff"/></svg>');
+            background-repeat: no-repeat;
+            filter: drop-shadow(0 0 3px var(--neon-blue));
+            z-index: 20;
+            transform-style: preserve-3d;
+        }
+        
+        .cat-1 {
+            top: 75px;
+            left: 50%;
+            filter: drop-shadow(0 0 3px var(--neon-pink));
+            animation: walkRing1 20s linear infinite;
+        }
+        
+        .cat-2 {
+            top: 160px;
+            left: 30%;
+            filter: drop-shadow(0 0 3px var(--neon-blue));
+            animation: walkRing2 25s linear infinite reverse;
+        }
+        
+        .cat-3 {
+            top: 200px;
+            left: 65%;
+            filter: drop-shadow(0 0 3px var(--cyber-yellow));
+            animation: walkRing3 15s linear infinite;
+        }
+        
+        .cat-4 {
+            top: 120px;
+            left: 45%;
+            filter: drop-shadow(0 0 3px var(--neon-purple));
+            animation: walkRing2 22s linear infinite;
+            animation-delay: 5s;
+        }
+        
+        .space-debris {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: var(--neon-pink);
+            box-shadow: 0 0 10px var(--neon-pink);
+        }
+        
+        .debris-1 {
+            top: 20px;
+            left: 160px;
+            width: 12px;
+            height: 12px;
+            animation: orbitDebris1 12s linear infinite;
+        }
+        
+        .debris-2 {
+            top: 240px;
+            left: 100px;
+            width: 8px;
+            height: 8px;
+            background: var(--neon-blue);
+            box-shadow: 0 0 10px var(--neon-blue);
+            animation: orbitDebris2 16s linear infinite;
+        }
+        
+        .debris-3 {
+            top: 120px;
+            left: 280px;
+            width: 6px;
+            height: 6px;
+            background: var(--cyber-yellow);
+            box-shadow: 0 0 10px var(--cyber-yellow);
+            animation: orbitDebris3 20s linear infinite;
+        }
+        
+        .debris-4 {
+            top: 50px;
+            left: 70px;
+            width: 9px;
+            height: 9px;
+            background: var(--neon-purple);
+            box-shadow: 0 0 10px var(--neon-purple);
+            animation: orbitDebris4 18s linear infinite reverse;
+        }
+        
+        .asteroid {
+            position: absolute;
+            width: 20px;
+            height: 15px;
+            background-color: #555;
+            border-radius: 50% 65% 60% 70%;
+            box-shadow: inset 2px 2px 5px rgba(255, 255, 255, 0.2),
+                       inset -2px -2px 5px rgba(0, 0, 0, 0.8),
+                       0 0 10px rgba(255, 42, 109, 0.5);
+            transform: rotate(30deg);
+            animation: asteroidFloat 25s linear infinite;
+        }
+        
+        .asteroid-1 {
+            top: 30px;
+            left: 40px;
+            animation-duration: 38s;
+        }
+        
+        .asteroid-2 {
+            bottom: 50px;
+            right: 60px;
+            width: 15px;
+            height: 10px;
+            animation-duration: 45s;
+            animation-delay: 5s;
+        }
+        
+        @keyframes ringsRotate {
+            from { transform: rotateY(0) rotateX(10deg); }
+            to { transform: rotateY(360deg) rotateX(10deg); }
+        }
+        
+        @keyframes planetTextureMove {
+            0% { transform: translateX(0) translateY(0) rotate(0); }
+            50% { transform: translateX(-30px) translateY(20px) rotate(180deg); }
+            100% { transform: translateX(0) translateY(0) rotate(360deg); }
+        }
+        
+        @keyframes walkRing1 {
+            0% { transform: rotate(0deg) translateX(190px) rotate(0deg) scale(1); }
+            50% { transform: rotate(180deg) translateX(190px) rotate(-180deg) scale(0.8); }
+            100% { transform: rotate(360deg) translateX(190px) rotate(-360deg) scale(1); }
+        }
+        
+        @keyframes walkRing2 {
+            0% { transform: rotate(0deg) translateX(160px) rotate(0deg) scale(0.8); }
+            50% { transform: rotate(180deg) translateX(160px) rotate(-180deg) scale(1); }
+            100% { transform: rotate(360deg) translateX(160px) rotate(-360deg) scale(0.8); }
+        }
+        
+        @keyframes walkRing3 {
+            0% { transform: rotate(0deg) translateX(130px) rotate(0deg) scale(0.7); }
+            50% { transform: rotate(180deg) translateX(130px) rotate(-180deg) scale(0.9); }
+            100% { transform: rotate(360deg) translateX(130px) rotate(-360deg) scale(0.7); }
+        }
+        
+        @keyframes orbitDebris1 {
+            0% { transform: rotate(0deg) translateX(150px) rotate(0deg) scale(1); }
+            50% { transform: rotate(180deg) translateX(150px) rotate(-180deg) scale(1.2); }
+            100% { transform: rotate(360deg) translateX(150px) rotate(-360deg) scale(1); }
+        }
+        
+        @keyframes orbitDebris2 {
+            0% { transform: rotate(120deg) translateX(140px) rotate(-120deg) scale(0.8); }
+            50% { transform: rotate(300deg) translateX(140px) rotate(-300deg) scale(1); }
+            100% { transform: rotate(480deg) translateX(140px) rotate(-480deg) scale(0.8); }
+        }
+        
+        @keyframes orbitDebris3 {
+            0% { transform: rotate(240deg) translateX(130px) rotate(-240deg) scale(1); }
+            50% { transform: rotate(420deg) translateX(130px) rotate(-420deg) scale(0.8); }
+            100% { transform: rotate(600deg) translateX(130px) rotate(-600deg) scale(1); }
+        }
+        
+        @keyframes orbitDebris4 {
+            0% { transform: rotate(180deg) translateX(160px) rotate(-180deg) scale(0.9); }
+            50% { transform: rotate(0deg) translateX(160px) rotate(0deg) scale(1.1); }
+            100% { transform: rotate(-180deg) translateX(160px) rotate(180deg) scale(0.9); }
+        }
+        
+        @keyframes asteroidFloat {
+            0% { transform: translate(0, 0) rotate(30deg); }
+            25% { transform: translate(200px, 100px) rotate(120deg); }
+            50% { transform: translate(400px, 0) rotate(210deg); }
+            75% { transform: translate(200px, -100px) rotate(300deg); }
+            100% { transform: translate(0, 0) rotate(390deg); }
+        }
+        @media (max-width: 768px) {
+            .home-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            nav ul {
+                flex-direction: column;
+                align-items: center;
+                padding: 15px;
+            }
+            
+            nav ul li {
+                margin: 10px 0;
+            }
+            
+            .logo h1 {
+                font-size: 2.5rem;
+            }
+            
+            .space-cat-3d {
+                width: 200px;
+                height: 200px;
+            }
+            
+            .planet-core {
+                width: 160px;
+                height: 160px;
+                top: 20px;
+                left: 20px;
+            }
+            
+            .planet-ring {
+                width: 240px;
+                height: 40px;
+                top: 80px;
+                left: -20px;
+            }
+            
+            .planet-ring::before {
+                width: 210px;
+                height: 20px;
+                top: 6px;
+                left: 12px;
+            }
+            
+            .cat-ears {
+                width: 160px;
+                height: 160px;
+                top: 20px;
+                left: 20px;
+            }
+            
+            .ear {
+                border-left: 20px solid transparent;
+                border-right: 20px solid transparent;
+                border-bottom: 40px solid var(--neon-pink);
+            }
+            
+            .ear-left {
+                transform: translateX(20px) translateY(-15px) rotate(-30deg);
+            }
+            
+            .ear-right {
+                transform: translateX(100px) translateY(-15px) rotate(30deg);
+            }
+            
+            .cat-face {
+                width: 100px;
+                height: 60px;
+                top: 65px;
+                left: 50px;
+            }
+            
+            .cat-eyes {
+                width: 60px;
+            }
+            
+            .cat-eye {
+                width: 16px;
+                height: 6px;
+            }
+            
+            .cat-eye::after {
+                width: 6px;
+                height: 12px;
+                top: 6px;
+                left: 5px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="space-objects">
+        <div class="nebula nebula-1"></div>
+        <div class="nebula nebula-2"></div>
+        <div class="nebula nebula-3"></div>
+        <div class="nebula nebula-4"></div>
+        <div class="galaxy galaxy-1"></div>
+        <div class="galaxy galaxy-2"></div>
+        <div class="distant-planet distant-planet-1"></div>
+        <div class="distant-planet distant-planet-2"></div>
+        <div class="distant-planet distant-planet-3"></div>
+        <div class="wormhole"></div>        
+        <div class="floating-particle p1"></div>
+        <div class="floating-particle p2"></div>
+        <div class="floating-particle p3"></div>
+        <div class="floating-particle p4"></div>
+        <div class="floating-particle p5"></div>
+        <div class="floating-particle p6"></div>
+        <div class="floating-particle p7"></div>
+        <div class="floating-particle p8"></div>
+        <div class="cosmic-dust d1"></div>
+        <div class="cosmic-dust d2"></div>
+        <div class="cosmic-dust d3"></div>
+        <div class="cosmic-dust d4"></div>
+        <div class="cosmic-dust d5"></div>
+        <div class="cosmic-dust d6"></div>
+        <div class="cosmic-dust d7"></div>
+        <div class="cosmic-dust d8"></div>
+        <div class="cosmic-dust d9"></div>
+        <div class="cosmic-dust d10"></div>
+        <div class="cosmic-dust d11"></div>
+        <div class="cosmic-dust d12"></div>
+        <div class="cosmic-dust d13"></div>
+        <div class="cosmic-dust d14"></div>
+        <div class="cosmic-dust d15"></div>
+    </div>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <h1>SPACE<span style="color: var(--neon-pink);">CATS</span></h1>
+            </div>
+            <div class="nav-container">
+                <nav>
+                    <ul>
+                        <li><a href="#" class="nav-link active" data-section="home">Home</a></li>
+                        <li><a href="#" class="nav-link" data-section="menu">Menu</a></li>
+                        <li><a href="#" class="nav-link" data-section="merch">Merch</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+    
+    <main class="container">
+        <section id="home" class="content-section active">
+            <div class="home-content">
+                <h2>Welcome to SpaceCats</h2>
+                <p>Journey through the cosmos with our intergalactic experience. SpaceCats brings you "out of this world" cuisine that will transport your taste buds to another dimension.</p>
+                
+                <div class="space-cat-3d">
+                    <div class="cat-planet">
+                        <div class="planet-core"></div>
+                        <div class="rings-system">
+                            <div class="planet-ring">
+                                <div class="ring-1"></div>
+                                <div class="ring-2"></div>
+                                <div class="ring-3"></div>
+                                <div class="ring-outer"></div>
+                                <div class="ring-inner"></div>
+                            </div>
+                        </div>
+                        <div class="cat-walker cat-1"></div>
+                        <div class="cat-walker cat-2"></div>
+                        <div class="cat-walker cat-3"></div>
+                        <div class="cat-walker cat-4"></div>
+                        <div class="space-debris debris-1"></div>
+                        <div class="space-debris debris-2"></div>
+                        <div class="space-debris debris-3"></div>
+                        <div class="space-debris debris-4"></div>
+                        <div class="asteroid asteroid-1"></div>
+                        <div class="asteroid asteroid-2"></div>
+                    </div>
+                </div>
+                
+                <button class="cta-button">Find Us Today</button>
+                
+                <div class="home-grid">
+                    <div class="feature-box">
+                        <h3>Our Story</h3>
+                        <p>Founded in 2025 by a group of cosmic culinary enthusiasts, SpaceCats has been serving the most innovative fusion food from our neon-lit truck. Our mission is to bring the future of food to the present day, combining retro aesthetics with futuristic flavors.</p>
+                    </div>
+                    <div class="feature-box">
+                        <h3>Location & Hours</h3>
+                        <p>You can find one of our glowing food trucks at your local curb every weekday from 6:00 PM to 3:00 AM, and on weekends from 6:00 PM until midnight. Follow our social media to stay up to date with special event locations and limited-time menu items.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section id="menu" class="content-section">
+            <div class="menu-content">
+                <h2>Our Cosmic Menu</h2>
+                <div class="menu-grid">
+                    <div class="menu-item">
+                        <div class="menu-info">
+                            <h3>Nebula Burger</h3>
+                            <p>A cosmic blend of flavors featuring our signature patty, glowing blue cheese, and star-dusted bun.</p>
+                            <div class="menu-price">$12.99</div>
+                        </div>
+                    </div>
+                    <div class="menu-item">
+                        <div class="menu-info">
+                            <h3>Cybernetic Fries</h3>
+                            <p>Crispy fries dusted with our special neon spice blend, served with holographic aioli dipping sauce.</p>
+                            <div class="menu-price">$5.99</div>
+                        </div>
+                    </div>
+                    <div class="menu-item">
+                        <div class="menu-info">
+                            <h3>Galactic Shake</h3>
+                            <p>A swirling vortex of cosmic flavors, topped with asteroid candy and stardust sprinkles.</p>
+                            <div class="menu-price">$7.99</div>
+                        </div>
+                    </div>
+                    <div class="menu-item">
+                        <div class="menu-info">
+                            <h3>Quantum Tacos</h3>
+                            <p>Three dimensional tacos existing in multiple flavor states simultaneously until you take your first bite.</p>
+                            <div class="menu-price">$10.99</div>
+                        </div>
+                    </div>
+                    <div class="menu-item">
+                        <div class="menu-info">
+                            <h3>Binary Bytes</h3>
+                            <p>0's and 1's never tasted so good. These digital-inspired bites come in either sweet or savory coding.</p>
+                            <div class="menu-price">$8.99</div>
+                        </div>
+                    </div>
+                    <div class="menu-item">
+                        <div class="menu-info">
+                            <h3>Astro Noodles</h3>
+                            <p>Zero-gravity inspired noodles floating in our special broth, garnished with meteorite mushrooms.</p>
+                            <div class="menu-price">$11.99</div>
+                        </div>
+                    </div>
+                    <div class="menu-item">
+                        <div class="menu-info">
+                            <h3>Milky Way Milkshakes</h3>
+                            <p>Ultra-creamy frozen treats swirled with stellar chocolate chips and interstellar vanilla, topped with supernova sprinkles.</p>
+                            <div class="menu-price">$8.49</div>
+                        </div>
+                    </div>
+                    <div class="menu-item">
+                        <div class="menu-info">
+                            <h3>Zero Gravity Floats</h3>
+                            <p>Our signature carbonated beverages defying the laws of physics with suspended flavor spheres that burst with each sip.</p>
+                            <div class="menu-price">$6.99</div>
+                        </div>
+                    </div>
+                    <div class="menu-item">
+                        <div class="menu-info">
+                            <h3>Comet Tail Cotton Candy</h3>
+                            <p>Neon-colored spun sugar that leaves a trail of cosmic flavor dust. Melts in your mouth like a comet entering the atmosphere.</p>
+                            <div class="menu-price">$5.49</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section id="merch" class="content-section">
+            <div class="merch-content">
+                <h2>SpaceCats Merchandise</h2>
+                <div class="merch-grid">
+                    <div class="merch-item">
+                        <div class="merch-img">
+                            <img src="assets/hoodie.png" alt="SpaceCats Cosmic Voyager Hoodie" width="500" height="300">
+                        </div>
+                        <div class="merch-info">
+                            <h3>Cosmic Voyager Hoodie</h3>
+                            <p>Stay warm in the cold vacuum of space with our neon-accented hoodie featuring the SpaceCats logo. Made with premium cosmic fabric, crafted by space monkeys.</p>
+                            <div class="merch-price">$249.99</div>
+                            <button class="buy-button">Add to Cart</button>
+                        </div>
+                    </div>
+                    <div class="merch-item">
+                        <div class="merch-img">
+                            <img src="assets/shirt.png" alt="SpaceCats Cosmic Voyager Hoodie" width="500" height="300">
+                        </div>
+                        <div class="merch-info">
+                            <h3>Nebula Navigator T-shirt</h3>
+                            <p>Our signature t-shirt with glow-in-the-dark cosmic cat design, perfect for night adventures.</p>
+                            <div class="merch-price">$69.99</div>
+                            <button class="buy-button">Add to Cart</button>
+                        </div>
+                    </div>                    
+                    <div class="merch-item">
+                        <div class="merch-img">
+                            <img src="assets/socks.png" alt="SpaceCats Cosmic Voyager Hoodie" width="500" height="300">
+                        </div>
+                        <div class="merch-info">
+                            <h3>Binary Code Socks</h3>
+                            <p>Step into the digital realm with our comfortable cyber-patterned socks, featuring hidden code messages.</p>
+                            <div class="merch-price">$24.99</div>
+                            <button class="buy-button">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Contact Us</h3>
+                    <p>Email: info@spacecats.org</p>
+                    <p>Phone: (777) SPACE-CATS</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Follow Our Socials</h3>
+                    <a href="#">Instagram</a>
+                    <a href="#">Twitter</a>
+                    <a href="#">TikTok</a>
+                </div>
+                <div class="footer-section">
+                    <h3>Legal</h3>
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Service</a>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2025 SpaceCats Food Truck. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const navLinks = document.querySelectorAll('.nav-link');
+            const contentSections = document.querySelectorAll('.content-section');
+            
+            navLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    navLinks.forEach(link => link.classList.remove('active'));
+                    this.classList.add('active');
+                    const sectionId = this.getAttribute('data-section');
+                    contentSections.forEach(section => section.classList.remove('active'));
+                    document.getElementById(sectionId).classList.add('active');
+                });
+            });
+            
+            const logoText = document.querySelector('.logo h1');
+            setInterval(() => {
+                if (Math.random() > 0.97) {
+                    logoText.style.animation = 'neonFlicker 1s';
+                    setTimeout(() => {
+                        logoText.style.animation = '';
+                    }, 1000);
+                }
+            }, 500);
+        });
+    </script>
+</body>
+</html>
